@@ -2,17 +2,20 @@ import React, {Component} from 'react';
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
+import checkboxes from './checkboxes';
+import Checkbox from './Checkbox';
 
 export default class MasterForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
             currentStep: 1,
-            email: '',
+            services: new Map(),
             username: '',
             password: '',
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
         this._next = this._next.bind(this)
         this._prev = this._prev.bind(this)
     }
@@ -63,6 +66,11 @@ export default class MasterForm extends Component {
             [name]: value
         })
     }
+    handleCheckboxChange(e) {
+        const item = e.target.name;
+        const isChecked = e.target.checked;
+        this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
+      }
     handleSubmit = (event) => {
         event.preventDefault()
         const { email, username, password } = this.state
@@ -74,13 +82,12 @@ export default class MasterForm extends Component {
     render(){
         return (
             <>
-            <h1>a wizard form!</h1>
             <p>Step {this.state.currentStep}</p>
 
             <form onSubmit={this.handleSubmit}>
                 <Step1
                     currentStep={this.state.currentStep}
-                    handleChange={this.handleChange}
+                    handleCheckboxChange={this.handleCheckboxChange}
                     services={this.state.services}
                 />
                 <Step2 
