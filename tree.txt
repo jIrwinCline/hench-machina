@@ -1,0 +1,8 @@
+Header
+    - Logo
+Body
+    - NewsFeed
+    - Navigation
+        - Option
+        - FindButton
+        - NavButton
