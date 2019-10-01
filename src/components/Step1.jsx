@@ -5,17 +5,28 @@ export default function Step1(props) {
         return null
     }
     return (
-        <div className="form-group">
-            <label htmlFor="email">Email address</label>
-            <input
-                className="form-control"
-                id="email"
-                name="email"
-                type="text"
-                placeholder="Enter email"
-                value={props.email} // Prop: The email input data
-                onChange={props.handleChange} // Prop: Puts data into state
-            />
+        <>
+        <h3>Select Services Needed</h3>
+        <p>and we'll find companies that can provide</p>
+        <div className="boxes form-group">
+            <input type="checkbox" id="box-1"/>
+            <label htmlFor="box-1">Patrol</label>
+
+            <input type="checkbox" id="box-2"/>
+            <label htmlFor="box-2">Loss Prevention</label>
+
+            <input type="checkbox" id="box-3"/>
+            <label htmlFor="box-3">Entry Access</label>
+
+            <input type="checkbox" id="box-4"/>
+            <label htmlFor="box-4">Surveilance</label>
+
+            <input type="checkbox" id="box-5"/>
+            <label htmlFor="box-5">Executive/personnel protection</label>
+
+            <input type="checkbox" id="box-6"/>
+            <label htmlFor="box-6">Estate and Residential Protection</label>
         </div>
+        </>
     )
 };

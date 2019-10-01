@@ -12,7 +12,7 @@ let masterCompanyList = [
       "Entry Access",
       "Surveilance",
       "Event Security",
-      "Personnel Protection",
+      "Executive/ Personnel Protection",
       "Estate and Residential Protection",
     ],
     specialServices: [
@@ -26,7 +26,7 @@ let masterCompanyList = [
       "Security Training",
     ],
     discreet: true,
-    armedServices = true,
+    armedServices: true,
     handsOn: true,
     hourlyRange: [23, 30],
     contactNumber: 9999999999,
@@ -50,7 +50,7 @@ let masterCompanyList = [
       "Security Training",
     ],
     discreet: true,
-    armedServices = true,
+    armedServices: true,
     handsOn: true,
     hourlyRange: [23, 30],
     contactNumber: 9999999999,
@@ -60,7 +60,7 @@ let masterCompanyList = [
 ]
 
 export default class Body extends Component {
-  contructor(props){
+  constructor(props){
     super(props)
     this.state = {
       companies: masterCompanyList,

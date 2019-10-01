@@ -81,12 +81,13 @@ export default class MasterForm extends Component {
                 <Step1
                     currentStep={this.state.currentStep}
                     handleChange={this.handleChange}
-                    email={this.state.email}
+                    services={this.state.services}
                 />
                 <Step2 
                     currentStep={this.state.currentStep}
                     handleChange={this.handleChange}
-                    username={this.state.username}
+                    handsOn={this.state.handsOn}
+                    cost={this.state.cost}
                 />
                 <Step3 
                     currentStep={this.state.currentStep}

@@ -5,6 +5,9 @@ export default function Step3(props) {
         return null;
     }
     return (
+        <>
+        <h3>Is the information corrent?</h3>
+        <p>Anything else the service provider should know?</p>
         <div className="form-group">
             <label htmlFor="password">password</label>
             <input
@@ -16,6 +19,8 @@ export default function Step3(props) {
                 value={props.password} 
                 onChange={props.handleChange}
             />
-        </div>
+            <button className="btn btn-success btn-block">Submit</button>
+        </div> 
+        </>
     )
 };
