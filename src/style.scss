@@ -34,7 +34,7 @@ body {
 }
 
 /*Checkboxes styles*/
-input[type="checkbox"] { display: none; }
+input[type="checkbox"] { display: inline; }
 
 input[type="checkbox"] + label {
   display: block;

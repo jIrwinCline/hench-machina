@@ -2,9 +2,9 @@ import React from 'react'
 
 const checkboxes = [
     {
-      name: 'check-box-1',
-      key: 'checkBox1',
-      label: 'Check Box 1',
+      name: 'Patrol',
+      key: 'patrol',
+      label: 'patrol',
     },
     {
       name: 'check-box-2',

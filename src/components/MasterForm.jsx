@@ -10,7 +10,7 @@ export default class MasterForm extends Component {
         super(props)
         this.state = {
             currentStep: 1,
-            services: new Map(),
+            checkedItems: new Map(),
             username: '',
             password: '',
         }
@@ -69,7 +69,13 @@ export default class MasterForm extends Component {
     handleCheckboxChange(e) {
         const item = e.target.name;
         const isChecked = e.target.checked;
-        this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
+        console.log(this.state.checkedItems);
+        
+        // this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
+
+        const newState = Object.assign({}, this.state, { checkedItems: this.state.checkedItems.set(item, isChecked) })
+
+        this.setState({ newState })
       }
     handleSubmit = (event) => {
         event.preventDefault()
@@ -88,7 +94,7 @@ export default class MasterForm extends Component {
                 <Step1
                     currentStep={this.state.currentStep}
                     handleCheckboxChange={this.handleCheckboxChange}
-                    services={this.state.services}
+                    checkedItems={this.state.checkedItems}
                 />
                 <Step2 
                     currentStep={this.state.currentStep}

@@ -9,11 +9,11 @@ export default function Step3(props) {
         <h3>Is the information corrent?</h3>
         <p>Anything else the service provider should know?</p>
         <div className="form-group">
-            <label htmlFor="password">password</label>
+            <label htmlFor="info">Is there additional information that the service provider should know about?</label>
             <input
                 className="form-control"
-                id="password"
-                name="password"
+                id="info"
+                name="info"
                 type="text"
                 placeholder="Enter password"
                 value={props.password} 

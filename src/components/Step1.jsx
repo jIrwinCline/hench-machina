@@ -6,24 +6,30 @@ export default function Step1(props) {
     if (props.currentStep !== 1) {
         return null
     }
+    let inputs = checkboxes.map(item => {
+        console.log(item)
+        return(
+        <div>
 
-    return (
+            <label htmlFor={item.name} key={item.key}>
+            {item.name}
+            </label>
+            <Checkbox name={item.name} checked={props.checkedItems.get(item.name)} onChange={props.handleCheckboxChange} />
+        </div>
+        );
+        })
+    return(
         <>
         <h3>Select Services Needed</h3>
         <p>and we'll find companies that can provide</p>
-        {
-          checkboxes.map(item => (
-            <label key={item.key}>
-              {item.name}
-              <Checkbox name={item.name} checked={props.services.get(item.name)} onChange={props.handleCheckboxChange} />
-            </label>
-          ))
-        }
+       
+        {inputs}
+        
         </>
     )
 };
 
-{/* <h3>Select Services Needed</h3>
+/* <h3>Select Services Needed</h3>
 <p>and we'll find companies that can provide</p>
 <div className="boxes form-group">
     <input type="checkbox" id="box-1"/>
@@ -43,4 +49,4 @@ export default function Step1(props) {
 
     <input type="checkbox" id="box-6"/>
     <label htmlFor="box-6">Estate and Residential Protection</label>
-</div> */}
+</div> */
