@@ -3,7 +3,7 @@ import NewsFeed from './NewsFeed';
 import Navigation from './Navigation';
 import MasterForm from './MasterForm';
 
-let MasterCompanyList = [
+let masterCompanyList = [
   {
     companyName: "Corporate Crime Control Association",
     coreServices: [
@@ -60,11 +60,19 @@ let MasterCompanyList = [
 ]
 
 export default class Body extends Component {
-  return (
-      <div>
-      <NewsFeed />
-      <MasterForm />
-      <Navigation />
-      </div>
-  )
+  contructor(props){
+    super(props)
+    this.state = {
+      companies: masterCompanyList,
+    }
+  }
+  render(){
+    return (
+        <div>
+        <NewsFeed />
+        <MasterForm />
+        <Navigation />
+        </div>
+    )
+  }
 };
