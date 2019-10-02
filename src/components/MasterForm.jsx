@@ -8,101 +8,8 @@ import { RadioGroup, RadioButton } from 'react-radio-buttons';
 
 
 export default class MasterForm extends Component {
-    constructor(props) {
+    constructor(props){
         super(props)
-        this.state = {
-            currentStep: 1,
-            checkedItems: new Map(),
-            handsOn: false,
-            cost: "med",
-            addInfo: "",
-        }
-    }
-    _next() {
-        let currentStep = this.state.currentStep
-
-        currentStep = currentStep >= 2? 3: currentStep + 1
-        this.setState({
-            currentStep: currentStep
-        })
-    }
-    _prev() {
-        let currentStep = this.state.currentStep
-        currentStep = currentStep <= 1? 1: currentStep - 1
-        this.setState({
-            currentStep: currentStep
-        })
-    }
-    get nextButton(){
-        let currentStep = this.state.currentStep;
-        if(currentStep <3){
-            return (
-            <button 
-                className="btn btn-primary float-right" 
-                type="button" onClick={this._next}>
-            Next
-            </button>        
-            )
-        }
-        return null;
-    }
-    get previousButton(){
-        let currentStep = this.state.currentStep;
-        if(currentStep !== 1 ){
-            return (
-                <button
-                    className="btn btn-secondary"
-                    type="button" onClick={this._prev}>
-                Previous
-                </button>
-            )
-        }
-        return null;
-    }
-    handleChange(event) {
-        const {name, value} = event.target
-        this.setState({
-            [name]: value
-        })
-    }
-    handleCheckboxChange(e) {
-        const item = e.target.name;
-        const isChecked = e.target.checked;
-        console.log(this.state.checkedItems);
-        
-        // this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
-
-        const newState = Object.assign({}, this.state, { checkedItems: this.state.checkedItems.set(item, isChecked) })
-
-        this.setState({ newState })
-      }
-
-
-    // printServices(map){
-    //     servicesArray = []
-    //     for (var i = 0, keys = Object.keys(map), ii = keys.length; i < ii; i++) {
-    //     console.log(keys[i] + '|' + map[keys[i]].list);
-    //     }
-    // }
-    handleSubmit = (event) => {
-        event.preventDefault()
-        const { checkedItems, handsOn, cost, additionalInfo } = this.state
-        let serviceArr = []
-        for (let [k,v] of checkedItems){
-            console.log(k)
-            serviceArr.push(k)
-        }
-        // Object.keys(checkedItems).forEach(function(key) {
-        //     console.log(key)
-        //     serviceArr.push(checkedItems[key])
-        // });
-        // let printedServices = printServices(checkedItems)
-        alert(`Your search details: \n 
-        Services: ${serviceArr} \n 
-        Arresting: ${handsOn} \n
-        Price: ${cost} \n
-        Additional Info: ${additionalInfo}
-        `) 
     }
     render(){
         let inputs = checkboxes.map(item => {
@@ -112,7 +19,7 @@ export default class MasterForm extends Component {
                 <label htmlFor={item.name} key={item.key}>
                 {item.name}
                 </label>
-                <Checkbox name={item.name} checked={this.state.checkedItems.get(item.name)} onChange={this.handleCheckboxChange} />
+                <Checkbox name={item.name} checked={this.checkedItems.get(item.name)} onChange={this.handleCheckboxChange} />
             </div>
             );
         })
