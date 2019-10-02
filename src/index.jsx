@@ -16,8 +16,10 @@ import './style.scss';
 //redux
 import {createStore } from 'redux';
 import { Provider } from 'react-redux';
+import rootReducer from './reducers/rootReducer'
 
-const store = createStore();
+
+const store = createStore(rootReducer);
 
 const root = document.getElementById('root');
 

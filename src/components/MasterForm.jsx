@@ -4,17 +4,18 @@ import Step2 from './Step2';
 import Step3 from './Step3';
 import checkboxes from './checkboxes';
 import Checkbox from './Checkbox';
+import { connect } from 'react-redux'
 
-export default class MasterForm extends Component {
+class MasterForm extends Component {
     constructor(props) {
-        super(props)
-        this.state = {
-            currentStep: 1,
-            checkedItems: new Map(),
-            handsOn: false,
-            cost: "med",
-            addInfo: "",
-        }
+        // super(props)
+        // this.state = {
+        //     currentStep: 1,
+        //     checkedItems: new Map(),
+        //     handsOn: false,
+        //     cost: "med",
+        //     addInfo: "",
+        // }
         this.handleChange = this.handleChange.bind(this)
         this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
         this._next = this._next.bind(this)
@@ -137,3 +138,11 @@ export default class MasterForm extends Component {
         )
     }
 };
+
+const mapStateToProps = (state) => {
+    return {
+        currentStep: state.currentStep
+    }
+}
+
+export default connect(mapStateToProps)(MasterForm)
