@@ -120,7 +120,7 @@ export default class MasterForm extends Component {
             <div className="container-fluid">
             <h3>Select Services Needed</h3>
             <p>and we'll find companies that can provide</p>
-            <form handleSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
                 {inputs}
                 <h3>Answer a few questions about the service you're wanting</h3>
                 <p>we'll further refine the results</p>
