@@ -13,7 +13,7 @@ export default class MasterForm extends Component {
             checkedItems: new Map(),
             handsOn: false,
             cost: "med",
-            additionalInfo: "",
+            addInfo: "",
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
@@ -127,7 +127,7 @@ export default class MasterForm extends Component {
                     <Step3 
                         currentStep={this.state.currentStep}
                         handleChange={this.handleChange}
-                        password={this.state.password}
+                        addInfo={this.state.addInfo}
                     />
                 </form>
                 {this.previousButton}

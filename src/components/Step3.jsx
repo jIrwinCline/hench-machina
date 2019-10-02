@@ -12,11 +12,11 @@ export default function Step3(props) {
             <label htmlFor="info">Is there additional information that the service provider should know about?</label>
             <input
                 className="form-control"
-                id="info"
-                name="info"
+                id="addInfo"
+                name="addInfo"
                 type="text"
                 placeholder="Add Important Info"
-                value={props.password} 
+                value={props.addInfo} 
                 onChange={props.handleChange}
             />
             <button className="btn btn-success btn-block">Submit</button>
