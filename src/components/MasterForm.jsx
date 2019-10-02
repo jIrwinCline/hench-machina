@@ -4,6 +4,8 @@ import Step2 from './Step2';
 import Step3 from './Step3';
 import checkboxes from './checkboxes';
 import Checkbox from './Checkbox';
+import { RadioGroup, RadioButton } from 'react-radio-buttons';
+
 
 export default class MasterForm extends Component {
     constructor(props) {
@@ -110,7 +112,7 @@ export default class MasterForm extends Component {
                 <label htmlFor={item.name} key={item.key}>
                 {item.name}
                 </label>
-                <Checkbox name={item.name} checked={this.checkedItems.get(item.name)} onChange={this.handleCheckboxChange} />
+                <Checkbox name={item.name} checked={this.state.checkedItems.get(item.name)} onChange={this.handleCheckboxChange} />
             </div>
             );
         })
@@ -154,7 +156,7 @@ export default class MasterForm extends Component {
                     name="addInfo"
                     type="text"
                     placeholder="Add Important Info"
-                    value={this.addInfo} 
+                    value={this.state.addInfo} 
                     onChange={this.handleChange}
                 />
                 <button className="btn btn-success btn-block">Submit</button>
