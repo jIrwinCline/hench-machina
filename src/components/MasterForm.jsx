@@ -15,10 +15,6 @@ export default class MasterForm extends Component {
             cost: "med",
             addInfo: "",
         }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-        this._next = this._next.bind(this)
-        this._prev = this._prev.bind(this)
     }
     _next() {
         let currentStep = this.state.currentStep
@@ -107,33 +103,64 @@ export default class MasterForm extends Component {
         `) 
     }
     render(){
-        return (
-            <>
-            <div className="container">
-                <p>Step {this.state.currentStep}</p>
-
-                <form onSubmit={this.handleSubmit}>
-                    <Step1
-                        currentStep={this.state.currentStep}
-                        handleCheckboxChange={this.handleCheckboxChange}
-                        checkedItems={this.state.checkedItems}
-                    />
-                    <Step2 
-                        currentStep={this.state.currentStep}
-                        handleChange={this.handleChange}
-                        handsOn={this.state.handsOn}
-                        cost={this.state.cost}
-                    />
-                    <Step3 
-                        currentStep={this.state.currentStep}
-                        handleChange={this.handleChange}
-                        addInfo={this.state.addInfo}
-                    />
-                </form>
-                {this.previousButton}
-                {this.nextButton}
+        let inputs = checkboxes.map(item => {
+            console.log(item)
+            return(
+            <div>
+                <label htmlFor={item.name} key={item.key}>
+                {item.name}
+                </label>
+                <Checkbox name={item.name} checked={this.checkedItems.get(item.name)} onChange={this.handleCheckboxChange} />
             </div>
+            );
+        })
+        return(
+            <>
+            <h3>Select Services Needed</h3>
+            <p>and we'll find companies that can provide</p>
+        
+            {inputs}
+            <h3>Answer a few questions about the service you're wanting</h3>
+            <p>we'll further refine the results</p>
+            <div className="form-group">
+                <label htmlFor="RadioGroup">Do you need a company known for going hands on for arresting?</label>
+                <RadioGroup horizontal>
+                    <RadioButton value="yes">
+                        Yes
+                    </RadioButton>
+                    <RadioButton value="no">
+                        No
+                    </RadioButton>
+                </RadioGroup>
+                <label htmlFor="RadioGroup">What price range are you looking to pay for services? (typically, higher prices are associated with better a quality of service)</label>
+                <RadioGroup horizontal>
+                    <RadioButton value="low">
+                        Low Cost
+                    </RadioButton>
+                    <RadioButton value="med">
+                        Medium Cost
+                    </RadioButton>
+                    <RadioButton value="high">
+                        High Cost (premium services)
+                    </RadioButton>
+                </RadioGroup>
+            </div>
+            <p>Anything else the service provider should know?</p>
+            <div className="form-group">
+                <label htmlFor="info">Is there additional information that the service provider should know about?</label>
+                <input
+                    className="form-control"
+                    id="addInfo"
+                    name="addInfo"
+                    type="text"
+                    placeholder="Add Important Info"
+                    value={this.addInfo} 
+                    onChange={this.handleChange}
+                />
+                <button className="btn btn-success btn-block">Submit</button>
+            </div> 
             </>
+
         )
     }
-};
+}
