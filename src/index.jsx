@@ -14,12 +14,13 @@ import App from './components/App';
 import './style.scss';
 
 //redux
-import {createStore } from 'redux';
+import {createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/rootReducer'
+import logger from 'redux-logger'
 
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 const root = document.getElementById('root');
 

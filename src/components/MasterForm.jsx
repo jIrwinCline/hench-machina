@@ -6,35 +6,38 @@ import checkboxes from './checkboxes';
 import Checkbox from './Checkbox';
 import { connect } from 'react-redux'
 
+
 class MasterForm extends Component {
     constructor(props) {
-        // super(props)
-        // this.state = {
-        //     currentStep: 1,
-        //     checkedItems: new Map(),
-        //     handsOn: false,
-        //     cost: "med",
-        //     addInfo: "",
-        // }
+        super(props)
+        this.state = {
+            // currentStep: 1,
+            checkedItems: new Map(),
+            handsOn: false,
+            cost: "med",
+            addInfo: "",
+        }
         this.handleChange = this.handleChange.bind(this)
         this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
         this._next = this._next.bind(this)
         this._prev = this._prev.bind(this)
     }
     _next() {
-        let currentStep = this.state.currentStep
+        // let currentStep = this.state.currentStep
 
-        currentStep = currentStep >= 2? 3: currentStep + 1
-        this.setState({
-            currentStep: currentStep
-        })
+        // currentStep = currentStep >= 2? 3: currentStep + 1
+        // this.setState({
+        //     currentStep: currentStep
+        // })
+        this.props.dispatch({ type: "_NEXT "});
     }
     _prev() {
-        let currentStep = this.state.currentStep
-        currentStep = currentStep <= 1? 1: currentStep - 1
-        this.setState({
-            currentStep: currentStep
-        })
+        // let currentStep = this.state.currentStep
+        // currentStep = currentStep <= 1? 1: currentStep - 1
+        // this.setState({
+        //     currentStep: currentStep
+        // })
+        this.props.dispatch({ type: "_PREV "});
     }
     get nextButton(){
         let currentStep = this.state.currentStep;
@@ -108,6 +111,7 @@ class MasterForm extends Component {
         `) 
     }
     render(){
+        console.log(props)
         return (
             <>
             <div className="container">
@@ -115,18 +119,18 @@ class MasterForm extends Component {
 
                 <form onSubmit={this.handleSubmit}>
                     <Step1
-                        currentStep={this.state.currentStep}
+                        currentStep={this.props.currentStep}
                         handleCheckboxChange={this.handleCheckboxChange}
                         checkedItems={this.state.checkedItems}
                     />
                     <Step2 
-                        currentStep={this.state.currentStep}
+                        currentStep={this.props.currentStep}
                         handleChange={this.handleChange}
                         handsOn={this.state.handsOn}
                         cost={this.state.cost}
                     />
                     <Step3 
-                        currentStep={this.state.currentStep}
+                        currentStep={this.props.currentStep}
                         handleChange={this.handleChange}
                         addInfo={this.state.addInfo}
                     />
@@ -142,6 +146,12 @@ class MasterForm extends Component {
 const mapStateToProps = (state) => {
     return {
         currentStep: state.currentStep
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+
     }
 }
 
