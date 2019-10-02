@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NewsFeed from './NewsFeed';
 import Navigation from './Navigation';
 import MasterForm from './MasterForm';
-import companies from './companies';
+import masterCompanyList from './companies';
 
 
 
