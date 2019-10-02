@@ -114,6 +114,7 @@ handleSubmit = (event) => {
           handleCheckboxChange={this.handleCheckboxChange}
           handleChange={this.handleChange}
           checkedItems={this.state.checkedItems}
+          addInfo={this.state.addInfo}
         />
         {/* <ReturnedCompanies /> */}
         <Navigation />

@@ -19,7 +19,7 @@ export default class MasterForm extends Component {
                 <label htmlFor={item.name} key={item.key}>
                 {item.name}
                 </label>
-                <Checkbox name={item.name} checked={this.checkedItems.get(item.name)} onChange={this.handleCheckboxChange} />
+                <Checkbox name={item.name} checked={this.props.checkedItems.get(item.name)} onChange={this.props.handleCheckboxChange} />
             </div>
             );
         })
@@ -63,8 +63,8 @@ export default class MasterForm extends Component {
                         name="addInfo"
                         type="text"
                         placeholder="Add Important Info"
-                        value={this.state.addInfo} 
-                        onChange={this.handleChange}
+                        value={this.props.addInfo} 
+                        onChange={this.props.handleChange}
                     />
                     <button className="btn btn-success btn-block">Submit</button>
                 </div> 
