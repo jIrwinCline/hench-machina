@@ -11,7 +11,7 @@ class MasterForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            // currentStep: 1,
+            currentStep: 1,
             checkedItems: new Map(),
             handsOn: false,
             cost: "med",
@@ -111,29 +111,37 @@ class MasterForm extends Component {
         `) 
     }
     render(){
-        console.log(props)
+        const currentStepView = (props) => {
+            if(props.currentStep == 1 ) {
+                return <Step1
+                currentStep={this.props.currentStep}
+                handleCheckboxChange={this.handleCheckboxChange}
+                checkedItems={this.state.checkedItems}
+            />;
+            }
+            if(props.currentStep == 2 ) {
+                return <Step2 
+                currentStep={this.props.currentStep}
+                handleChange={this.handleChange}
+                handsOn={this.state.handsOn}
+                cost={this.state.cost}
+            />;
+            }
+            if(props.currentStep == 3 ) {
+                return <Step3 
+                currentStep={this.props.currentStep}
+                handleChange={this.handleChange}
+                addInfo={this.state.addInfo}
+            />;
+            }
+        };
         return (
             <>
             <div className="container">
-                <p>Step {this.state.currentStep}</p>
+                <p>Step {this.props.currentStep}</p>
 
                 <form onSubmit={this.handleSubmit}>
-                    <Step1
-                        currentStep={this.props.currentStep}
-                        handleCheckboxChange={this.handleCheckboxChange}
-                        checkedItems={this.state.checkedItems}
-                    />
-                    <Step2 
-                        currentStep={this.props.currentStep}
-                        handleChange={this.handleChange}
-                        handsOn={this.state.handsOn}
-                        cost={this.state.cost}
-                    />
-                    <Step3 
-                        currentStep={this.props.currentStep}
-                        handleChange={this.handleChange}
-                        addInfo={this.state.addInfo}
-                    />
+                    {currentStepView}
                 </form>
                 {this.previousButton}
                 {this.nextButton}

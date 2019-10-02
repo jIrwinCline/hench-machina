@@ -3,9 +3,6 @@ import checkboxes from './checkboxes';
 import Checkbox from './Checkbox';
 
 export default function Step1(props) {
-    if (props.currentStep !== 1) {
-        return null
-    }
     let inputs = checkboxes.map(item => {
         console.log(item)
         return(
