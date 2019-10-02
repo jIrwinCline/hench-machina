@@ -10,18 +10,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // hot reload for development
 import { AppContainer } from 'react-hot-loader';
-
 import App from './components/App';
-
 import './style.scss';
+
+//redux
+import {createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+const store = createStore();
 
 const root = document.getElementById('root');
 
 const render = (Component) => {
   ReactDOM.render(
-    <AppContainer>
+    <Provider store={store}>
       <Component />
-    </AppContainer>,
+    </Provider>,
     root,
   );
 };
