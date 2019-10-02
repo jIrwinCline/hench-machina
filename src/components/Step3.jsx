@@ -6,7 +6,7 @@ export default function Step3(props) {
     }
     return (
         <>
-        <h3>Is the information corrent?</h3>
+        <h3>Is the information correct?</h3>
         <p>Anything else the service provider should know?</p>
         <div className="form-group">
             <label htmlFor="info">Is there additional information that the service provider should know about?</label>
@@ -15,7 +15,7 @@ export default function Step3(props) {
                 id="info"
                 name="info"
                 type="text"
-                placeholder="Enter password"
+                placeholder="Add Important Info"
                 value={props.password} 
                 onChange={props.handleChange}
             />

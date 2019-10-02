@@ -11,8 +11,9 @@ export default class MasterForm extends Component {
         this.state = {
             currentStep: 1,
             checkedItems: new Map(),
-            username: '',
-            password: '',
+            handsOn: false,
+            cost: "med",
+            additionalInfo: "",
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
@@ -77,39 +78,61 @@ export default class MasterForm extends Component {
 
         this.setState({ newState })
       }
+
+
+    // printServices(map){
+    //     servicesArray = []
+    //     for (var i = 0, keys = Object.keys(map), ii = keys.length; i < ii; i++) {
+    //     console.log(keys[i] + '|' + map[keys[i]].list);
+    //     }
+    // }
     handleSubmit = (event) => {
         event.preventDefault()
-        const { email, username, password } = this.state
-        alert(`Your registration detail: \n 
-        Email: ${email} \n 
-        Username: ${username} \n
-        Password: ${password}`)
+        const { checkedItems, handsOn, cost, additionalInfo } = this.state
+        let serviceArr = []
+        for (let [k,v] of checkedItems){
+            console.log(k)
+            serviceArr.push(k)
+        }
+        // Object.keys(checkedItems).forEach(function(key) {
+        //     console.log(key)
+        //     serviceArr.push(checkedItems[key])
+        // });
+        // let printedServices = printServices(checkedItems)
+        alert(`Your search details: \n 
+        Services: ${serviceArr} \n 
+        Arresting: ${handsOn} \n
+        Price: ${cost} \n
+        Additional Info: ${additionalInfo}
+        `) 
     }
     render(){
         return (
             <>
-            <p>Step {this.state.currentStep}</p>
+            <div className="container">
+                <p>Step {this.state.currentStep}</p>
 
-            <form onSubmit={this.handleSubmit}>
-                <Step1
-                    currentStep={this.state.currentStep}
-                    handleCheckboxChange={this.handleCheckboxChange}
-                    checkedItems={this.state.checkedItems}
-                />
-                <Step2 
-                    currentStep={this.state.currentStep}
-                    handleChange={this.handleChange}
-                    handsOn={this.state.handsOn}
-                    cost={this.state.cost}
-                />
-                <Step3 
-                    currentStep={this.state.currentStep}
-                    handleChange={this.handleChange}
-                    password={this.state.password}
-                />
-            </form>
-            {this.previousButton}
-            {this.nextButton}
+                <form onSubmit={this.handleSubmit}>
+                    <Step1
+                        currentStep={this.state.currentStep}
+                        handleCheckboxChange={this.handleCheckboxChange}
+                        checkedItems={this.state.checkedItems}
+                    />
+                    <Step2 
+                        currentStep={this.state.currentStep}
+                        handleChange={this.handleChange}
+                        handsOn={this.state.handsOn}
+                        cost={this.state.cost}
+                    />
+                    <Step3 
+                        currentStep={this.state.currentStep}
+                        handleChange={this.handleChange}
+                        password={this.state.password}
+                    />
+                </form>
+                {this.previousButton}
+                {this.nextButton}
+            </div>
             </>
         )
     }

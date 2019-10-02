@@ -2,34 +2,39 @@ import React from 'react'
 
 const checkboxes = [
     {
-      name: 'Patrol',
+      name: 'patrol',
       key: 'patrol',
-      label: 'patrol',
+      label: 'Patrol',
     },
     {
-      name: 'check-box-2',
-      key: 'checkBox2',
-      label: 'Check Box 2',
+      name: 'loss-prevention',
+      key: 'lossPrevention',
+      label: 'Loss Prevention',
     },
     {
-      name: 'check-box-3',
-      key: 'checkBox3',
-      label: 'Check Box 3',
+      name: 'entry-access',
+      key: 'EntryAccess',
+      label: 'Entry Access',
     },
     {
-      name: 'check-box-4',
-      key: 'checkBox4',
-      label: 'Check Box 4',
+      name: 'surveilance',
+      key: 'surveilance',
+      label: 'Surveilance',
     },
     {
-      name: 'check-box-5',
-      key: 'checkBox5',
-      label: 'Check Box 5',
+      name: 'event-security',
+      key: 'eventSecurity',
+      label: 'Event Security',
     },
     {
-      name: 'check-box-6',
-      key: 'checkBox6',
-      label: 'Check Box 6',
+      name: 'executive-protection',
+      key: 'executiveProtection',
+      label: 'Executive/Personnel Protection',
+    },
+    {
+      name: 'estate-protection',
+      key: 'estateProtection',
+      label: 'Estate and Residential Protection',
     },
   ];
   
