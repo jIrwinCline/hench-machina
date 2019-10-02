@@ -8,7 +8,7 @@ const initState = {
     addInfo: "",
 }
 
-const rootReducer = (state = {initState}, action) => {
+const rootReducer = (state = initState, action) => {
     switch(action.type) {
         case "_NEXT":
             return {

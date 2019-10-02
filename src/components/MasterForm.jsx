@@ -6,6 +6,9 @@ import checkboxes from './checkboxes';
 import Checkbox from './Checkbox';
 import { connect } from 'react-redux'
 
+// actions
+import {nextStep} from './../actions'
+
 
 class MasterForm extends Component {
     constructor(props) {
@@ -21,7 +24,11 @@ class MasterForm extends Component {
         this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
         this._next = this._next.bind(this)
         this._prev = this._prev.bind(this)
+        // console.log(this.props)
+        // const {nextStep} = this.props
+        // nextStep()
     }
+
     _next() {
         // let currentStep = this.state.currentStep
 
@@ -29,7 +36,7 @@ class MasterForm extends Component {
         // this.setState({
         //     currentStep: currentStep
         // })
-        this.props.dispatch({ type: "_NEXT "});
+        this.props.dispatch({ type: "_NEXT"});
     }
     _prev() {
         // let currentStep = this.state.currentStep
@@ -37,7 +44,7 @@ class MasterForm extends Component {
         // this.setState({
         //     currentStep: currentStep
         // })
-        this.props.dispatch({ type: "_PREV "});
+        this.props.dispatch({ type: "_PREV"});
     }
     get nextButton(){
         let currentStep = this.state.currentStep;
@@ -111,35 +118,34 @@ class MasterForm extends Component {
         `) 
     }
     render(){
-        const currentStepView = (props) => {
-            if(props.currentStep == 1 ) {
-                return <Step1
+        let currentStepView;
+            if(this.props.currentStep == 1 ) {
+                currentStepView = <Step1
                 currentStep={this.props.currentStep}
                 handleCheckboxChange={this.handleCheckboxChange}
                 checkedItems={this.state.checkedItems}
             />;
             }
-            if(props.currentStep == 2 ) {
-                return <Step2 
+            if(this.props.currentStep == 2 ) {
+                currentStepView = <Step2 
                 currentStep={this.props.currentStep}
                 handleChange={this.handleChange}
                 handsOn={this.state.handsOn}
                 cost={this.state.cost}
             />;
             }
-            if(props.currentStep == 3 ) {
-                return <Step3 
+            if(this.props.currentStep == 3 ) {
+                currentStepView= <Step3 
                 currentStep={this.props.currentStep}
                 handleChange={this.handleChange}
                 addInfo={this.state.addInfo}
             />;
             }
-        };
+      
         return (
             <>
             <div className="container">
                 <p>Step {this.props.currentStep}</p>
-
                 <form onSubmit={this.handleSubmit}>
                     {currentStepView}
                 </form>
@@ -163,4 +169,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps)(MasterForm)
+export default connect(mapStateToProps, {nextStep})(MasterForm)
