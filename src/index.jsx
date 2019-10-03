@@ -10,7 +10,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // hot reload for development
 import { AppContainer } from 'react-hot-loader';
-
+import { BrowserRouter } from 'react-router-dom'
 import App from './components/App';
 
 import './style.scss';
@@ -19,9 +19,11 @@ const root = document.getElementById('root');
 
 const render = (Component) => {
   ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
+    <BrowserRouter>
+      <AppContainer>
+        <Component />
+      </AppContainer>
+    </BrowserRouter>,
     root,
   );
 };
