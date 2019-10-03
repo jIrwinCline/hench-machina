@@ -119,7 +119,7 @@ handleSubmit = (event) => {
           checkedItems={this.state.checkedItems}
           addInfo={this.state.addInfo}
         />
-        <ReturnedCompanies />
+        <ReturnedCompanies checkedItems={this.state.checkedItems} />
         <Navigation />
         </div>
     )
