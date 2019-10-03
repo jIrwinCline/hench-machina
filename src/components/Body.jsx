@@ -175,6 +175,7 @@ properCompanies = () => {
         return (
           <>
             <ReturnedCompanies 
+              selectedCompany={this.state.selectedCompany}
               companies={companies}
               viewCompany={this.viewCompany}
             />

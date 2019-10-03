@@ -7,7 +7,7 @@ export default function ReturnedCompanies(props) {
     return (
     <div>
         {props.companies.map((company, index ) => 
-            <Company viewCompany={props.viewCompany} company={company} index={index} key={index}/>
+            <Company selectedCompany={props.selectedCompany} viewCompany={props.viewCompany} company={company} index={index} key={index}/>
         )}
     </div>
     );
