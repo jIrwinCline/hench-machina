@@ -117,7 +117,7 @@ properCompanies = () => {
       for (let c of this.state.checkedItems.keys()){
           if (masterCompanyList[i].coreServices.includes(c)){
               // result.push(<Company company={masterCompanyList[i]}/>);
-              result.push(masterCompanyList[i].companyName);
+              result.push(masterCompanyList[i]);
           }
       };
   }
@@ -126,7 +126,7 @@ properCompanies = () => {
   return [...new Set(result)]
 }
   render(){
-    // this.properCompanies()
+    let companies = this.properCompanies()
     return (
         <div>
         <NewsFeed />
@@ -137,8 +137,8 @@ properCompanies = () => {
           checkedItems={this.state.checkedItems}
           addInfo={this.state.addInfo}
         />
-        {this.properCompanies()}
-        {/* <ReturnedCompanies checkedItems={this.state.checkedItems} /> */}
+        {/* {this.properCompanies()} */}
+        <ReturnedCompanies companies={companies} />
         <Navigation />
         </div>
     )
