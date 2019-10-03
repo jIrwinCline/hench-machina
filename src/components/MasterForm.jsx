@@ -13,7 +13,7 @@ export default class MasterForm extends Component {
     }
     render(){
         let inputs = checkboxes.map(item => {
-            console.log(item)
+            // console.log(item)
             return(
             <div>
                 <label htmlFor={item.name} key={item.key}>
@@ -27,7 +27,7 @@ export default class MasterForm extends Component {
             <div className="container-fluid">
             <h3>Select Services Needed</h3>
             <p>and we'll find companies that can provide</p>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.props.handleSubmit}>
                 {inputs}
                 <h3>Answer a few questions about the service you're wanting</h3>
                 <p>we'll further refine the results</p>

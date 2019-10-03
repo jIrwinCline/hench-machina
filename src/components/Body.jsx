@@ -3,6 +3,7 @@ import NewsFeed from './NewsFeed';
 import Navigation from './Navigation';
 import MasterForm from './MasterForm';
 import masterCompanyList from './companies';
+import ReturnedCompanies from './ReturnedCompanies';
 
 
 
@@ -60,17 +61,18 @@ export default class Body extends Component {
 //     }
 //     return null;
 // }
-handleChange(event) {
+handleChange = (event)=> {
     const {name, value} = event.target
     this.setState({
         [name]: value
     })
+    console.log("after handle change", this.state)
 }
-handleCheckboxChange(e) {
+
+handleCheckboxChange = (e) => {
+    console.log("look here", this.state)
     const item = e.target.name;
     const isChecked = e.target.checked;
-    console.log(this.state.checkedItems);
-    
     // this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
 
     const newState = Object.assign({}, this.state, { checkedItems: this.state.checkedItems.set(item, isChecked) })
@@ -86,6 +88,7 @@ handleCheckboxChange(e) {
 //     }
 // }
 handleSubmit = (event) => {
+    console.log("event", event)
     event.preventDefault()
     const { checkedItems, handsOn, cost, additionalInfo } = this.state
     let serviceArr = []
@@ -116,7 +119,7 @@ handleSubmit = (event) => {
           checkedItems={this.state.checkedItems}
           addInfo={this.state.addInfo}
         />
-        {/* <ReturnedCompanies /> */}
+        <ReturnedCompanies />
         <Navigation />
         </div>
     )
