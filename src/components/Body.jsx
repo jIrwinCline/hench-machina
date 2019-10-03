@@ -12,6 +12,7 @@ export default class Body extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      selectedCompany: null,
       findButton: false,
       submitted: false,
       returnedCompanyies: null,
@@ -64,6 +65,14 @@ export default class Body extends Component {
 //     }
 //     return null;
 // }
+
+viewCompany = (companyName) => {
+  console.log("TARGET: ", companyName)
+  
+  const newState = Object.assign({}, this.state, { selectedCompany: companyName })
+  this.setState( newState )
+  console.log("RECENT STATE: ",this.state)
+}
 findButtonClick = () => {
 
   const newState = Object.assign({}, this.state, { findButton: true })
@@ -165,7 +174,10 @@ properCompanies = () => {
       } else {
         return (
           <>
-            <ReturnedCompanies companies={companies} />
+            <ReturnedCompanies 
+              companies={companies}
+              viewCompany={this.viewCompany}
+            />
             <Navigation />
           </>
         )
