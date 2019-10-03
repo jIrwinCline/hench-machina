@@ -12,6 +12,7 @@ export default class Body extends Component {
   constructor(props) {
     super(props)
     this.state = {
+        returnedCompanyies: null,
         companies: masterCompanyList,
         currentStep: 1,
         checkedItems: new Map(),
@@ -70,7 +71,7 @@ handleChange = (event)=> {
 }
 
 handleCheckboxChange = (e) => {
-    console.log("look here", this.state)
+    console.log("HandleCheckboxChange", this.state)
     const item = e.target.name;
     const isChecked = e.target.checked;
     // this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }));
@@ -108,7 +109,24 @@ handleSubmit = (event) => {
     Additional Info: ${additionalInfo}
     `) 
 }
+properCompanies = () => {
+  console.log(this)
+  let result = []
+  let checked = this.state.checkedItems.keys()
+  for (let i = 0; i < masterCompanyList.length; i++ ) {
+      for (let c of this.state.checkedItems.keys()){
+          if (masterCompanyList[i].coreServices.includes(c)){
+              // result.push(<Company company={masterCompanyList[i]}/>);
+              result.push(masterCompanyList[i].companyName);
+          }
+      };
+  }
+  console.log("CONSOLED RESULT:", [...new Set(result)])
+  // this.setState({returnedCompanies: [...new Set(result)]})
+  return [...new Set(result)]
+}
   render(){
+    // this.properCompanies()
     return (
         <div>
         <NewsFeed />
@@ -119,7 +137,8 @@ handleSubmit = (event) => {
           checkedItems={this.state.checkedItems}
           addInfo={this.state.addInfo}
         />
-        <ReturnedCompanies checkedItems={this.state.checkedItems} />
+        {this.properCompanies()}
+        {/* <ReturnedCompanies checkedItems={this.state.checkedItems} /> */}
         <Navigation />
         </div>
     )

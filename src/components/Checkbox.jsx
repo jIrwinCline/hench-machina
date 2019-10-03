@@ -13,7 +13,6 @@ const Checkbox = (props) => (
   <input type="checkbox" name={props.name} checked={props.checked} onChange={props.onChange} />
 );
 
-
 Checkbox.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string.isRequired,

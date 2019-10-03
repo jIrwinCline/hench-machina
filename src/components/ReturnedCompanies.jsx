@@ -5,6 +5,7 @@ import masterCompanyList from './companies';
 export default class ReturnedCompanies extends Component {
     constructor(props){
         super(props)
+
     }
 
     properCompanies = () => {
@@ -24,7 +25,8 @@ export default class ReturnedCompanies extends Component {
             };
         }
         console.log(result)
-        return result
+        // this.setState({returnedCompanies: [...new Set(result)]})
+        return [...new Set(result)]
     }
 
     render() {
@@ -32,7 +34,7 @@ export default class ReturnedCompanies extends Component {
         // let companyProperties = properCompaniesVar[0]
         // console.log(companyProperties)
         // console.log(Object.keys(companyProperties))
-        console.log(properCompaniesVar[0])
+        console.log(properCompaniesVar)
         return (
         <div>
             <h1>{this.properCompanies()}</h1>

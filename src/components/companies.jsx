@@ -53,6 +53,28 @@ const masterCompanyList = [
       contactNumber: 9999999999,
       address: "21328 Highway 99E Aurora, OR 97002"
   
+    },
+    {
+      companyName: "Securitas",
+      coreServices: [
+        "Loss Prevention",
+        "Entry Access",
+        "Surveilance",
+        "Event Security",
+        "Executive/Personnel Protection",
+        "Estate and Residential Protection",
+      ],
+      specialServices: [
+        "Fire and Safety Services",
+        "Electronic Security",
+      ],
+      discreet: false,
+      armedServices: false,
+      handsOn: false,
+      hourlyRange: [23, 30],
+      contactNumber: 9999999999,
+      address: "129 SW 4th Avenue Portland, OR 97204"
+  
     }
   ]
 
