@@ -12,13 +12,14 @@ export default class Body extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        returnedCompanyies: null,
-        companies: masterCompanyList,
-        currentStep: 1,
-        checkedItems: new Map(),
-        handsOn: false,
-        cost: "med",
-        addInfo: "",
+      submitted: false,
+      returnedCompanyies: null,
+      companies: masterCompanyList,
+      currentStep: 1,
+      checkedItems: new Map(),
+      handsOn: false,
+      cost: "med",
+      addInfo: "",
     }
 }
 // _next() {
@@ -78,7 +79,7 @@ handleCheckboxChange = (e) => {
 
     const newState = Object.assign({}, this.state, { checkedItems: this.state.checkedItems.set(item, isChecked) })
 
-    this.setState({ newState })
+    this.setState( newState )
   }
 
 
@@ -97,17 +98,27 @@ handleSubmit = (event) => {
         console.log(k)
         serviceArr.push(k)
     }
+
+    const newState = Object.assign({}, this.state, { submitted: true })
+    console.log('103', newState)
+    this.setState(newState)
+    console.log('105', newState)
+
+    console.log("STATE: --- ", this.state )
+
     // Object.keys(checkedItems).forEach(function(key) {
     //     console.log(key)
     //     serviceArr.push(checkedItems[key])
     // });
     // let printedServices = printServices(checkedItems)
-    alert(`Your search details: \n
-    Services: ${serviceArr} \n
-    Arresting: ${handsOn} \n
-    Price: ${cost} \n
-    Additional Info: ${additionalInfo}
-    `) 
+
+    //ALERT FORM INPUTS
+    // alert(`Your search details: \n
+    // Services: ${serviceArr} \n
+    // Arresting: ${handsOn} \n
+    // Price: ${cost} \n
+    // Additional Info: ${additionalInfo}
+    // `) 
 }
 properCompanies = () => {
   console.log(this)
@@ -127,9 +138,11 @@ properCompanies = () => {
 }
   render(){
     let companies = this.properCompanies()
+    console.log(this.state.submitted)
     return (
         <div>
-        <NewsFeed />
+          <p>submitted: {this.state.submitted.toString()}</p>
+        {/* <NewsFeed /> */}
         <MasterForm
           handleSubmit={this.handleSubmit}
           handleCheckboxChange={this.handleCheckboxChange}
@@ -137,7 +150,6 @@ properCompanies = () => {
           checkedItems={this.state.checkedItems}
           addInfo={this.state.addInfo}
         />
-        {/* {this.properCompanies()} */}
         <ReturnedCompanies companies={companies} />
         <Navigation />
         </div>
