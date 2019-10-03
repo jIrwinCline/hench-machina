@@ -12,6 +12,7 @@ export default class Body extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      findButton: false,
       submitted: false,
       returnedCompanyies: null,
       companies: masterCompanyList,
@@ -63,6 +64,11 @@ export default class Body extends Component {
 //     }
 //     return null;
 // }
+findButtonClick = () => {
+
+  const newState = Object.assign({}, this.state, { findButton: true })
+  this.setState( newState )
+}
 handleChange = (event)=> {
     const {name, value} = event.target
     this.setState({
@@ -89,8 +95,8 @@ handleCheckboxChange = (e) => {
 //     console.log(keys[i] + '|' + map[keys[i]].list);
 //     }
 // }
+
 handleSubmit = (event) => {
-    console.log("event", event)
     event.preventDefault()
     const { checkedItems, handsOn, cost, additionalInfo } = this.state
     let serviceArr = []
@@ -100,11 +106,7 @@ handleSubmit = (event) => {
     }
 
     const newState = Object.assign({}, this.state, { submitted: true })
-    console.log('103', newState)
     this.setState(newState)
-    console.log('105', newState)
-
-    console.log("STATE: --- ", this.state )
 
     // Object.keys(checkedItems).forEach(function(key) {
     //     console.log(key)
@@ -138,27 +140,36 @@ properCompanies = () => {
 }
   render(){
     let companies = this.properCompanies()
-    if (this.state.submitted == false ){
+    if (this.state.findButton == false ) {
       return (
         <>
-          {/* <NewsFeed /> */}
-          <MasterForm
-          handleSubmit={this.handleSubmit}
-          handleCheckboxChange={this.handleCheckboxChange}
-          handleChange={this.handleChange}
-          checkedItems={this.state.checkedItems}
-          addInfo={this.state.addInfo}
-          />
-          <Navigation />
+        <NewsFeed />
+        <Navigation findButtonClick={this.findButtonClick}/>
         </>
       )
     } else {
-      return (
-      <>
-        <ReturnedCompanies companies={companies} />
-        <Navigation />
-      </>
-      )
+      if (this.state.submitted == false ){
+        return (
+          <>
+            {/* <NewsFeed /> */}
+            <MasterForm
+            handleSubmit={this.handleSubmit}
+            handleCheckboxChange={this.handleCheckboxChange}
+            handleChange={this.handleChange}
+            checkedItems={this.state.checkedItems}
+            addInfo={this.state.addInfo}
+            />
+            <Navigation />
+          </>
+        )
+      } else {
+        return (
+          <>
+            <ReturnedCompanies companies={companies} />
+            <Navigation />
+          </>
+        )
+      }
     }
     // return (
     //     <div>
