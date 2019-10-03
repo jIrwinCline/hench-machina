@@ -138,21 +138,41 @@ properCompanies = () => {
 }
   render(){
     let companies = this.properCompanies()
-    console.log(this.state.submitted)
-    return (
-        <div>
-          <p>submitted: {this.state.submitted.toString()}</p>
-        {/* <NewsFeed /> */}
-        <MasterForm
+    if (this.state.submitted == false ){
+      return (
+        <>
+          {/* <NewsFeed /> */}
+          <MasterForm
           handleSubmit={this.handleSubmit}
           handleCheckboxChange={this.handleCheckboxChange}
           handleChange={this.handleChange}
           checkedItems={this.state.checkedItems}
           addInfo={this.state.addInfo}
-        />
+          />
+          <Navigation />
+        </>
+      )
+    } else {
+      return (
+      <>
         <ReturnedCompanies companies={companies} />
         <Navigation />
-        </div>
-    )
+      </>
+      )
+    }
+    // return (
+    //     <div>
+    //     {/* <NewsFeed /> */}
+    //     <MasterForm
+    //       handleSubmit={this.handleSubmit}
+    //       handleCheckboxChange={this.handleCheckboxChange}
+    //       handleChange={this.handleChange}
+    //       checkedItems={this.state.checkedItems}
+    //       addInfo={this.state.addInfo}
+    //     />
+    //     <ReturnedCompanies companies={companies} />
+    //     <Navigation />
+    //     </div>
+    // )
   }
 };
