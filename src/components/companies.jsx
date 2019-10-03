@@ -9,7 +9,7 @@ const masterCompanyList = [
         "Entry Access",
         "Surveilance",
         "Event Security",
-        "Executive/ Personnel Protection",
+        "Executive/Personnel Protection",
         "Estate and Residential Protection",
       ],
       specialServices: [
