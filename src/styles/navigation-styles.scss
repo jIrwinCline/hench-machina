@@ -11,8 +11,8 @@ div.navigation h2 {
     padding-left: 60px;
 }
 div.navigation {
-    position: relative;
-    top: 540px;
+    position: absolute;
+    top: 900px;
 }
 
 div.navigation h3 {
@@ -45,11 +45,95 @@ div.nav-buttons {
 }
 div.nav-buttons button.up{
     position: absolute;
-    bottom: 155px;
-    right: 50px;
+    bottom: 40px;
+    right: 20px;
 }
 div.nav-buttons button.down{
     position: absolute;
-    bottom: 80px;
-    right: 50px;
+    bottom: 40px;
+    right: 160px;
+}
+@media only screen and (min-width: 1400px) {
+    [class="nav-buttons"] {
+        position: absolute;
+        left: 1390px;
+    }
+}
+
+//----------EXTRA-BUTTON-STYLES------------
+.button {
+	min-width: 130px;
+    max-width: 250px;
+    height: 55px;
+	display: block;
+	margin: 1em;
+	padding: 1em 2em;
+	border: none;
+	background: none;
+	color: inherit;
+	vertical-align: middle;
+	position: relative;
+	z-index: 1;
+	-webkit-backface-visibility: hidden;
+	-moz-osx-font-smoothing: grayscale;
+}
+.button--border-thick {
+	border: 2px solid;
+}
+.button--size-s {
+	font-size: 14px;
+}
+.button--text-upper {
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+.button:focus {
+	outline: none;
+}
+.button > span {
+	vertical-align: middle;
+}
+/* Aylen */
+.button--aylen {
+	background: #fff;
+	color: #37474f;
+	overflow: hidden;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+}
+.button--aylen.button--inverted {
+	background: none;
+	color: #fff;
+}
+.button--aylen::before,
+.button--aylen::after {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	bottom: 100%;
+	left: 0;
+	z-index: -1;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+.button--aylen::before {
+	background: #7986cb;
+}
+.button--aylen::after {
+	background: #3f51b5;
+}
+.button--aylen:hover {
+	color: #fff;
+}
+.button--aylen:hover::before,
+.button--aylen:hover::after {
+	-webkit-transform: translate3d(0, 100%, 0);
+	transform: translate3d(0, 100%, 0);
+}
+.button--aylen:hover::after {
+	-webkit-transition-delay: 0.175s;
+	transition-delay: 0.175s;
 }
