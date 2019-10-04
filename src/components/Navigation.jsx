@@ -1,9 +1,8 @@
 import React from 'react';
-import FindButton from './FindButton';
 
 export default function Navigation(props) {
   return (
-      <div>
+      <div className="navigation container-fluid">
         <h2>Security</h2>
         <hr/>
         <h3>Find Services Near You</h3>
