@@ -5,10 +5,12 @@ export default function Navigation(props) {
       <div className="navigation container-fluid">
         <h2>Security</h2>
         <hr/>
-        <h3>Find Services Near You</h3>
-        <button onClick={props.findButtonClick}>Find</button> <br/>
-        <button>up</button>
-        <button>down</button>
+        <h3>Companies</h3>
+        <button class="find-btn" onClick={props.findButtonClick}>Find</button> <br/>
+        <div class="nav-buttons">
+        <button class="up">up</button>
+        <button class="down">down</button>
+        </div>
       </div>
   )
 };
