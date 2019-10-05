@@ -24,7 +24,7 @@ export default class MasterForm extends Component {
             );
         })
         return(
-            <div className="container-fluid main-padding">
+            <div className="container-fluid main-padding text-box">
                 <form onSubmit={this.props.handleSubmit}>
                     <div className="row">
                         <div className="col-md-5 col-center">
@@ -67,19 +67,21 @@ export default class MasterForm extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="form-group">
-                        <div className="col-med-12 col-center">
-                            <label htmlFor="info">Is there additional information that the service provider should know about?</label>
-                            <input
-                                className="form-control"
-                                id="addInfo"
-                                name="addInfo"
-                                type="text"
-                                placeholder="Add Important Info"
-                                value={this.props.addInfo} 
-                                onChange={this.props.handleChange}
-                            />
-                            <button className="btn btn-success btn-block">Submit</button>
+                    <div className="">
+                        <div className="form-group">
+                            <div className="col-med-12 col-center">
+                                <label htmlFor="info">Is there additional information that the service provider should know about?</label>
+                                <input
+                                    className="form-control"
+                                    id="addInfo"
+                                    name="addInfo"
+                                    type="text"
+                                    placeholder="Add Important Info"
+                                    value={this.props.addInfo} 
+                                    onChange={this.props.handleChange}
+                                />
+                                <button className="button button--aylen button--border-thick button--inverted button--text-upper button--size-s">Submit</button>
+                            </div>
                         </div>
                     </div>
                 </form>
