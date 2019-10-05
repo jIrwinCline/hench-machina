@@ -1,0 +1,17 @@
+.vertical { 
+    border-left: 6px solid black; 
+    height: 300px; 
+    position: absolute; 
+    left: 50%; 
+} 
+
+.col-center {
+    text-align: center;
+    align-items: center;
+    
+    // background: blue;
+}
+.checkboxes {
+    text-align: left !important;
+    padding-left: 260px;
+}

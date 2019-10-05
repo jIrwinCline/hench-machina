@@ -12,10 +12,11 @@ export default class Body extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      page: "main-page",
       selectedCompany: null,
       findButton: false,
       submitted: false,
-      returnedCompanyies: null,
+      returnedCompanies: null,
       companies: masterCompanyList,
       currentStep: 1,
       checkedItems: new Map(),
@@ -75,7 +76,7 @@ viewCompany = (companyName) => {
 }
 findButtonClick = () => {
 
-  const newState = Object.assign({}, this.state, { findButton: true })
+  const newState = Object.assign({}, this.state, { findButton: true, page: "form-page" })
   this.setState( newState )
 }
 handleChange = (event)=> {
@@ -114,7 +115,7 @@ handleSubmit = (event) => {
         serviceArr.push(k)
     }
 
-    const newState = Object.assign({}, this.state, { submitted: true })
+    const newState = Object.assign({}, this.state, { submitted: true, page: "submitted-page" })
     this.setState(newState)
 
     // Object.keys(checkedItems).forEach(function(key) {
@@ -149,54 +150,75 @@ properCompanies = () => {
 }
   render(){
     let companies = this.properCompanies()
-    if (this.state.findButton == false ) {
+    // if (this.state.findButton == false ) {
+    //   return (
+    //     <>
+    //     <NewsFeed />
+    //     <Navigation findButtonClick={this.findButtonClick}/>
+    //     </>
+    //   )
+    // } else {
+    //   if (this.state.submitted == false ){
+    //     return (
+    //       <>
+    //         {/* <NewsFeed /> */}
+    //         <MasterForm
+    //         handleSubmit={this.handleSubmit}
+    //         handleCheckboxChange={this.handleCheckboxChange}
+    //         handleChange={this.handleChange}
+    //         checkedItems={this.state.checkedItems}
+    //         addInfo={this.state.addInfo}
+    //         />
+    //         <Navigation />
+    //       </>
+    //     )
+    //   } else {
+    //     return (
+    //       <>
+    //         <ReturnedCompanies 
+    //           selectedCompany={this.state.selectedCompany}
+    //           companies={companies}
+    //           viewCompany={this.viewCompany}
+    //         />
+    //         <Navigation />
+    //       </>
+    //     )
+    //   }
+    // }
+    //////////////////////////////////////////////////////////////
+    switch (this.state.page){
+      case "main-page":
       return (
         <>
         <NewsFeed />
         <Navigation findButtonClick={this.findButtonClick}/>
         </>
       )
-    } else {
-      if (this.state.submitted == false ){
-        return (
-          <>
-            {/* <NewsFeed /> */}
-            <MasterForm
-            handleSubmit={this.handleSubmit}
-            handleCheckboxChange={this.handleCheckboxChange}
-            handleChange={this.handleChange}
-            checkedItems={this.state.checkedItems}
-            addInfo={this.state.addInfo}
-            />
-            <Navigation />
-          </>
-        )
-      } else {
-        return (
-          <>
-            <ReturnedCompanies 
-              selectedCompany={this.state.selectedCompany}
-              companies={companies}
-              viewCompany={this.viewCompany}
-            />
-            <Navigation />
-          </>
-        )
-      }
+      case "form-page":
+      return (
+        <>
+          {/* <NewsFeed /> */}
+          <MasterForm
+          handleSubmit={this.handleSubmit}
+          handleCheckboxChange={this.handleCheckboxChange}
+          handleChange={this.handleChange}
+          checkedItems={this.state.checkedItems}
+          addInfo={this.state.addInfo}
+          />
+          <Navigation />
+        </>
+      )
+      case "submitted-page":
+      return(
+      <>
+        <ReturnedCompanies 
+          selectedCompany={this.state.selectedCompany}
+          companies={companies}
+          viewCompany={this.viewCompany}
+        />
+        <Navigation />
+      </>
+      )
     }
-    // return (
-    //     <div>
-    //     {/* <NewsFeed /> */}
-    //     <MasterForm
-    //       handleSubmit={this.handleSubmit}
-    //       handleCheckboxChange={this.handleCheckboxChange}
-    //       handleChange={this.handleChange}
-    //       checkedItems={this.state.checkedItems}
-    //       addInfo={this.state.addInfo}
-    //     />
-    //     <ReturnedCompanies companies={companies} />
-    //     <Navigation />
-    //     </div>
-    // )
   }
 };

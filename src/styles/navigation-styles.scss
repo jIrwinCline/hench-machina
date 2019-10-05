@@ -11,7 +11,8 @@ div.navigation h2 {
     padding-left: 60px;
 }
 div.navigation {
-	position: absolute;
+	position: fixed;
+	padding: 30px;
 	bottom: 60px;
     // top: 900px;
 }

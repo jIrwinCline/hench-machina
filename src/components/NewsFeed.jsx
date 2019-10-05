@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function NewsFeed() {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid news-container">
       <div className="row">
         <div className="col-md-4">
           <div className="card news-card-style">

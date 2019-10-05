@@ -24,51 +24,65 @@ export default class MasterForm extends Component {
             );
         })
         return(
-            <div className="container-fluid">
-            <h3>Select Services Needed</h3>
-            <p>and we'll find companies that can provide</p>
-            <form onSubmit={this.props.handleSubmit}>
-                {inputs}
-                <h3>Answer a few questions about the service you're wanting</h3>
-                <p>we'll further refine the results</p>
-                <div className="form-group">
-                    <label htmlFor="RadioGroup">Do you need a company known for going hands on for arresting?</label>
-                    <RadioGroup horizontal>
-                        <RadioButton value="yes">
-                            Yes
-                        </RadioButton>
-                        <RadioButton value="no">
-                            No
-                        </RadioButton>
-                    </RadioGroup>
-                    <label htmlFor="RadioGroup">What price range are you looking to pay for services? (typically, higher prices are associated with better a quality of service)</label>
-                    <RadioGroup horizontal>
-                        <RadioButton value="low">
-                            Low Cost
-                        </RadioButton>
-                        <RadioButton value="med">
-                            Medium Cost
-                        </RadioButton>
-                        <RadioButton value="high">
-                            High Cost (premium services)
-                        </RadioButton>
-                    </RadioGroup>
-                </div>
-                <p>Anything else the service provider should know?</p>
-                <div className="form-group">
-                    <label htmlFor="info">Is there additional information that the service provider should know about?</label>
-                    <input
-                        className="form-control"
-                        id="addInfo"
-                        name="addInfo"
-                        type="text"
-                        placeholder="Add Important Info"
-                        value={this.props.addInfo} 
-                        onChange={this.props.handleChange}
-                    />
-                    <button className="btn btn-success btn-block">Submit</button>
-                </div> 
-            </form>
+            <div className="container-fluid main-padding">
+                <form onSubmit={this.props.handleSubmit}>
+                    <div className="row">
+                        <div className="col-md-5 col-center">
+                            <h3>Select Services Needed</h3>
+                            <p>and we'll find companies that can provide</p>
+                            <div className="checkboxes">
+                               {inputs}
+                            </div>
+                        </div>
+                        <div className="col-md-1 col-center">
+                            <div className="vertical">
+                                 
+                            </div>
+                        </div>
+                        <div className="col-md-5 col-center">
+                        <h3>Answer a few questions about the service you're wanting</h3>
+                        <p>we'll further refine the results</p>
+                            <div className="form-group">
+                                <label htmlFor="RadioGroup">Do you need a company known for going hands on for arresting?</label>
+                                <RadioGroup horizontal>
+                                    <RadioButton value="yes">
+                                        Yes
+                                    </RadioButton>
+                                    <RadioButton value="no">
+                                        No
+                                    </RadioButton>
+                                </RadioGroup>
+                                <label htmlFor="RadioGroup">What price range are you looking to pay for services? (typically, higher prices are associated with better a quality of service)</label>
+                                <RadioGroup horizontal>
+                                    <RadioButton value="low">
+                                        Low Cost
+                                    </RadioButton>
+                                    <RadioButton value="med">
+                                        Medium Cost
+                                    </RadioButton>
+                                    <RadioButton value="high">
+                                        High Cost (premium services)
+                                    </RadioButton>
+                                </RadioGroup>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="col-med-12 col-center">
+                            <label htmlFor="info">Is there additional information that the service provider should know about?</label>
+                            <input
+                                className="form-control"
+                                id="addInfo"
+                                name="addInfo"
+                                type="text"
+                                placeholder="Add Important Info"
+                                value={this.props.addInfo} 
+                                onChange={this.props.handleChange}
+                            />
+                            <button className="btn btn-success btn-block">Submit</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         )
     }
