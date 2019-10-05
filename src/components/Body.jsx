@@ -101,7 +101,7 @@ handleCheckboxChange = (e) => {
 
 backButtonClick = () => {
   console.log("BACK BUTTON CICK: ",this.state.pageHistory[0])
-  const newState = Object.assign({}, this.state, { page: this.state.pageHistory[0] })
+  const newState = Object.assign({}, this.state, { page: this.state.pageHistory[0], returnedCompanies: null, checkedItems: new Map() })
 
   this.setState( newState )
 }
@@ -212,7 +212,6 @@ properCompanies = () => {
           checkedItems={this.state.checkedItems}
           addInfo={this.state.addInfo}
           />
-          <Navigation />
         </>
       )
       case "submitted-page":
@@ -224,7 +223,6 @@ properCompanies = () => {
           companies={companies}
           viewCompany={this.viewCompany}
         />
-        <Navigation />
       </>
       )
     }

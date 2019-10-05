@@ -80,7 +80,7 @@ export default class MasterForm extends Component {
                                     value={this.props.addInfo} 
                                     onChange={this.props.handleChange}
                                 />
-                                <button className="button button--aylen button--border-thick button--inverted button--text-upper button--size-s">Submit</button>
+                                <button className="submit-button button button--aylen button--border-thick button--inverted button--text-upper button--size-s">Submit</button>
                             </div>
                         </div>
                     </div>
