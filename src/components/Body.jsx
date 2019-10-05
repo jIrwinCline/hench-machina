@@ -155,6 +155,7 @@ properCompanies = () => {
   // this.setState({returnedCompanies: [...new Set(result)]})
   return [...new Set(result)]
 }
+component
   render(){
     let companies = this.properCompanies()
     // if (this.state.findButton == false ) {
