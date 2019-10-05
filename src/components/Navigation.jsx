@@ -6,10 +6,10 @@ export default function Navigation(props) {
         <h2>Security</h2>
         <hr/>
         <h3>Companies</h3>
-        <button class="find-btn button button--aylen button--border-thick button--inverted button--text-upper button--size-s" onClick={props.findButtonClick}>Find</button> <br/>
-        <div class="nav-buttons">
-        <button class="up button button--aylen button--border-thick button--inverted button--text-upper button--size-s">Next</button>
-        <button class="down button button--aylen button--border-thick button--inverted button--text-upper button--size-s">Back</button>
+        <button className="find-btn button button--aylen button--border-thick button--inverted button--text-upper button--size-s" onClick={props.findButtonClick}>Find</button> <br/>
+        <div className="nav-buttons">
+        <button className="up button button--aylen button--border-thick button--inverted button--text-upper button--size-s">Next</button>
+        <button className="down button button--aylen button--border-thick button--inverted button--text-upper button--size-s">Back</button>
         </div>
       </div>
   )
