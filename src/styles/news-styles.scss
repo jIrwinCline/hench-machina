@@ -1,10 +1,23 @@
 .news-card-style {
-    background: #657189;
-    // margin-left: 20px;
-    // margin-right: 20px;
+    background: rgb(119, 158, 211);
+    width: 340px;
+    height: 280px;
+    border: 2px solid rgb(226, 226, 226);
+    // display:flex;
+    // justify-content: center;
+      
 }
+// @media only screen and (min-width: 1476px) {
+//     [class="news-container"] {
+//         display: flex;
+//         justify-content: vertical;
+//     }
+// }
 .news-container {
     padding-top: 80px;
     padding-left: 15%;
     padding-right: 15%;
+
+    
+
 }
