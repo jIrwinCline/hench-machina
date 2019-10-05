@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 import MasterForm from './MasterForm';
 import masterCompanyList from './companies';
 import ReturnedCompanies from './ReturnedCompanies';
-
+import BackButton from './BackButton'
 
 
 export default class Body extends Component {
@@ -23,6 +23,7 @@ export default class Body extends Component {
       handsOn: false,
       cost: "med",
       addInfo: "",
+      pageHistory: ["main-page"]
     }
 }
 // _next() {
@@ -98,6 +99,12 @@ handleCheckboxChange = (e) => {
     this.setState( newState )
   }
 
+backButtonClick = () => {
+  console.log("BACK BUTTON CICK: ",this.state.pageHistory[0])
+  const newState = Object.assign({}, this.state, { page: this.state.pageHistory[0] })
+
+  this.setState( newState )
+}
 
 // printServices(map){
 //     servicesArray = []
@@ -197,7 +204,7 @@ properCompanies = () => {
       case "form-page":
       return (
         <>
-          {/* <NewsFeed /> */}
+          <BackButton backButtonClick={this.backButtonClick}/>
           <MasterForm
           handleSubmit={this.handleSubmit}
           handleCheckboxChange={this.handleCheckboxChange}
@@ -211,6 +218,7 @@ properCompanies = () => {
       case "submitted-page":
       return(
       <>
+        <BackButton backButtonClick={this.backButtonClick}/>
         <ReturnedCompanies 
           selectedCompany={this.state.selectedCompany}
           companies={companies}
