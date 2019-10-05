@@ -15,11 +15,11 @@ function expandCompany() {
     console.log("COMPANY PROPS:", props)
     //below, onclick has to be anon 
     return (
-    <div>
-        <h1>Company</h1>
-        <p onClick={() => props.viewCompany(props.company.companyName)} >{props.company.companyName}</p> 
+    <div className="company-info">
+        <p>Company</p>
+        <h1 onClick={() => props.viewCompany(props.company.companyName)} >{props.company.companyName}</h1> 
         {expandCompany()}
-        {/* <p>{props.company.coreServices}</p> */}
+        <hr/>
     </div>
     )
 };

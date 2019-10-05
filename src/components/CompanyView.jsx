@@ -25,14 +25,29 @@ export default function CompanyView(props) {
         }
     }
   return (
-    <div>
-        <h3>{props.company.coreServices}</h3><br/>
-        <h3>{props.company.specialServices}</h3><br/>
-        <h3>{discreet()}</h3><br/>
-        <h3>{armed()}</h3><br/>
-        <h3>{handsOn()}</h3><br/>
-        <h3>{props.company.contactNumber}</h3><br/>
-        <h3>{props.company.address}</h3><br/>
-    </div>
+    <>
+        <hr style={{backgroundColor: "grey"}}/>
+        <h4>Services</h4>
+        <ul>
+        {
+            props.company.coreServices.map((service, index) => (
+                <li>{service}</li>
+            ))}
+        </ul><br/>
+        <h4>Special Services</h4>
+        <ul>
+        {
+            props.company.specialServices.map((service, index) => (
+                <li>{service}</li>
+            ))}
+        </ul><br/>
+        <p>{discreet()}</p><br/>
+        <p>{armed()}</p><br/>
+        <p>{handsOn()}</p><br/>
+        <div className="contact-info">
+            <h4>{props.company.contactNumber}</h4><br/>
+            <h4>{props.company.address}</h4><br/>
+        </div>
+    </>
   )
 };
