@@ -23,7 +23,10 @@ export default class Body extends Component {
       handsOn: false,
       cost: "med",
       addInfo: "",
-      pageHistory: ["main-page"]
+      enterPage: "main-page",
+      pageArray: ["main-page", "all-companies-page", "guard-page"],
+      position: 0,
+      pageHistory: ["main-page"],
     }
 }
 // _next() {
@@ -77,7 +80,13 @@ viewCompany = (companyName) => {
 }
 findButtonClick = () => {
 
-  const newState = Object.assign({}, this.state, { findButton: true, page: "form-page" })
+  const newState = Object.assign({}, this.state, { findButton: true, page: this.state.enterPage })
+  this.setState( newState )
+}
+nextButtonClick = () => {
+  console.log("DOES THE STATE CHANGE WORK?: ----------",this.state.pageArray[this.state.position + 1])
+  const newState = Object.assign({}, this.state, { enterPage: this.state.pageArray[this.state.position + 1] })
+  console.log("THE PAGE STATE: -----",this.state)
   this.setState( newState )
 }
 handleChange = (event)=> {
@@ -85,7 +94,7 @@ handleChange = (event)=> {
     this.setState({
         [name]: value
     })
-    console.log("after handle change", this.state)
+  console.log("after handle change", this.state)
 }
 
 handleCheckboxChange = (e) => {
@@ -199,7 +208,7 @@ component
       return (
         <>
         <NewsFeed />
-        <Navigation findButtonClick={this.findButtonClick}/>
+        <Navigation findButtonClick={this.findButtonClick} nextButtonClick={this.nextButtonClick}/>
         </>
       )
       case "form-page":
@@ -216,7 +225,7 @@ component
         </>
       )
       case "submitted-page":
-      return(
+      return (
       <>
         <BackButton backButtonClick={this.backButtonClick}/>
         <ReturnedCompanies 

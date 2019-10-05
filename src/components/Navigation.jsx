@@ -8,7 +8,7 @@ export default function Navigation(props) {
         <h3>Companies</h3>
         <button className="find-btn button button--aylen button--border-thick button--inverted button--text-upper button--size-s" onClick={props.findButtonClick}>Find</button> <br/>
         <div className="nav-buttons">
-        <button className="up button button--aylen button--border-thick button--inverted button--text-upper button--size-s">Next</button>
+        <button className="up button button--aylen button--border-thick button--inverted button--text-upper button--size-s "onClick={props.nextButtonClick}>Next</button>
         <button className="down button button--aylen button--border-thick button--inverted button--text-upper button--size-s">Back</button>
         </div>
       </div>
