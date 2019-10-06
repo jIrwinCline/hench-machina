@@ -23,7 +23,7 @@ export default class Body extends Component {
       handsOn: false,
       cost: "med",
       addInfo: "",
-      enterPage: "main-page",
+      enterPage: "form-page",
       pageArray: ["form-page", "all-companies-page", "guard-page"],
       position: 0,
       pageHistory: ["main-page"],
@@ -80,9 +80,12 @@ viewCompany = (companyName) => {
   console.log("RECENT STATE: ",this.state)
 }
 findButtonClick = () => {
-
+  if (this.state.pageContent == "Guards"){
+    {window.location = "http://dpsstnet.state.or.us/IRIS_PublicInquiry/PrivateSecurity/smsgoperson.aspx";}
+  } else {
   const newState = Object.assign({}, this.state, { findButton: true, page: this.state.enterPage })
   this.setState( newState )
+  }
 }
 nextButtonClick = () => {
   console.log("DOES THE STATE CHANGE WORK?: ----------",this.state.pageArray[this.state.position + 1])
