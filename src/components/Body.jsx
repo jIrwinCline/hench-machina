@@ -24,7 +24,7 @@ export default class Body extends Component {
       cost: "med",
       addInfo: "",
       enterPage: "main-page",
-      pageArray: ["main-page", "all-companies-page", "guard-page"],
+      pageArray: ["form-page", "all-companies-page", "guard-page"],
       position: 0,
       pageHistory: ["main-page"],
       pageContent: "Services"
@@ -87,6 +87,11 @@ findButtonClick = () => {
 nextButtonClick = () => {
   console.log("DOES THE STATE CHANGE WORK?: ----------",this.state.pageArray[this.state.position + 1])
   let changeTo = null
+  let newPosition = this.state.position + 1
+  if (newPosition > 2){
+    console.log("POSITION", newPosition)
+    newPosition = 0;
+  }
   switch(this.state.pageContent){
     case "Services":
     changeTo = "Companies"
@@ -100,8 +105,8 @@ nextButtonClick = () => {
     default:
     console.log("error in Body line 87")
   }
-  console.log(changeTo)
-  const newState = Object.assign({}, this.state, { pageContent: changeTo,enterPage: this.state.pageArray[this.state.position + 1] })
+  console.log(this.state.pageArray[newPosition])
+  const newState = Object.assign({}, this.state, { pageContent: changeTo, position: newPosition, enterPage: this.state.pageArray[newPosition] })
   console.log("THE PAGE STATE: -----",this.state)
   this.setState( newState )
 }
@@ -253,13 +258,18 @@ properCompanies = () => {
       case "all-companies-page":
       return (
         <>
-          <Navigation pageContent="Companies" findButtonClick={this.findButtonClick} nextButtonClick={this.nextButtonClick}/>
+          <BackButton backButtonClick={this.backButtonClick}/>
+          <ReturnedCompanies 
+          selectedCompany={this.state.selectedCompany}
+          companies={masterCompanyList}
+          viewCompany={this.viewCompany}
+        />
         </>
       )
       case "guard-page":
       return (
         <>
-          <Navigation pageContent="Guards" findButtonClick={this.findButtonClick} nextButtonClick={this.nextButtonClick}/>
+          <BackButton backButtonClick={this.backButtonClick}/>
         </>
       )
     }
