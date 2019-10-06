@@ -27,6 +27,7 @@ export default class Body extends Component {
       pageArray: ["main-page", "all-companies-page", "guard-page"],
       position: 0,
       pageHistory: ["main-page"],
+      pageContent: "Services"
     }
 }
 // _next() {
@@ -85,7 +86,22 @@ findButtonClick = () => {
 }
 nextButtonClick = () => {
   console.log("DOES THE STATE CHANGE WORK?: ----------",this.state.pageArray[this.state.position + 1])
-  const newState = Object.assign({}, this.state, { enterPage: this.state.pageArray[this.state.position + 1] })
+  let changeTo = null
+  switch(this.state.pageContent){
+    case "Services":
+    changeTo = "Companies"
+    break;
+    case "Companies":
+    changeTo = "Guards"
+    break;
+    case "Guards":
+    changeTo = "Services"
+    break;
+    default:
+    console.log("error in Body line 87")
+  }
+  console.log(changeTo)
+  const newState = Object.assign({}, this.state, { pageContent: changeTo,enterPage: this.state.pageArray[this.state.position + 1] })
   console.log("THE PAGE STATE: -----",this.state)
   this.setState( newState )
 }
@@ -164,7 +180,6 @@ properCompanies = () => {
   // this.setState({returnedCompanies: [...new Set(result)]})
   return [...new Set(result)]
 }
-component
   render(){
     let companies = this.properCompanies()
     // if (this.state.findButton == false ) {
@@ -208,7 +223,7 @@ component
       return (
         <>
         <NewsFeed />
-        <Navigation findButtonClick={this.findButtonClick} nextButtonClick={this.nextButtonClick}/>
+        <Navigation pageContent={this.state.pageContent} findButtonClick={this.findButtonClick} nextButtonClick={this.nextButtonClick}/>
         </>
       )
       case "form-page":
@@ -234,6 +249,18 @@ component
           viewCompany={this.viewCompany}
         />
       </>
+      )
+      case "all-companies-page":
+      return (
+        <>
+          <Navigation pageContent="Companies" findButtonClick={this.findButtonClick} nextButtonClick={this.nextButtonClick}/>
+        </>
+      )
+      case "guard-page":
+      return (
+        <>
+          <Navigation pageContent="Guards" findButtonClick={this.findButtonClick} nextButtonClick={this.nextButtonClick}/>
+        </>
       )
     }
   }
