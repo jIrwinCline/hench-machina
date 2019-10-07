@@ -1,10 +1,13 @@
 {
   "name": "henchtek",
   "version": "1.0.0",
+  "homepage": "https://jirwincline.github.io/hench-machina",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server -d",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "build": "cross-env NODE_ENV=production webpack -p",
     "test": "jest"
   },
