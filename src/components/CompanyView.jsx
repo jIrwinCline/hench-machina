@@ -45,6 +45,8 @@ export default function CompanyView(props) {
         <p>{armed()}</p><br/>
         <p>{handsOn()}</p><br/>
         <div className="contact-info">
+            <a href={props.company.url}><button className="button button--aylen button--border-thick button--inverted button--text-upper button--size-s" >Website Portal</button></a>
+            <br/>
             <h4>{props.company.contactNumber}</h4><br/>
             <h4>{props.company.address}</h4><br/>
         </div>
