@@ -23,7 +23,7 @@ _Navigate by clicking "Next" to the functionality you want to use out of the app
 ## Link to GitHub Pages
 
 _Link to GitHub repo:_
-[sunny-tap-room](https://github.com/jIrwinCline/hench-machina.git)
+[Hench Machina](https://github.com/jIrwinCline/hench-machina.git)
 _Link to Gh-pages hosting:_
 (https://jirwincline.github.io/hench-machina)
 
