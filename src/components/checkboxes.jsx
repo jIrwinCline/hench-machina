@@ -36,6 +36,21 @@ const checkboxes = [
       key: 'estateProtection',
       label: 'Estate and Residential Protection',
     },
+    {
+      name: 'Security Consulting',
+      key: 'securityConsulting',
+      label: 'Security Consulting',
+    },
+    {
+      name: 'Secure Transport',
+      key: 'secureTransport',
+      label: 'Secure Transport',
+    },
+    {
+      name: 'Alarm Response',
+      key: 'alarmResponse',
+      label: 'Alarm Response',
+    },
   ];
   
   export default checkboxes;
