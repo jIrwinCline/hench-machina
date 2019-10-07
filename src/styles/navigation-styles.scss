@@ -32,15 +32,33 @@ div.navigation h3 {
 div.navigation hr { 
     background-color: white;
   }
-//-----------BUTTONS-----------
-button.find-btn {
-    position: absolute;
-    margin-left: 60px;
-    margin-top: 10px;
-    height: 55px;
-    // width: 110px
-    
+  button.find-btn {
+	  position: absolute;
+	  margin-left: 60px;
+	  margin-top: 10px;
+	  height: 55px;
+	  // width: 110px
+	  
+  }
+@media only screen and (max-width: 650px) {
+    div.navigation {
+		top: 100px;
+		// display: none;
+	}
+	div.navigation h2 {
+		font-size: 30px;
+		// display: none;
+	}
+	div.navigation h3 {
+		font-size: 30px;
+		// display: none;
+	}
+	button.find-btn {
+		top: 200px;
+		left: 77px;
+	}
 }
+//-----------BUTTONS-----------
 
 div.nav-buttons {
     float: right;

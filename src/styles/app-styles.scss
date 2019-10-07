@@ -26,6 +26,17 @@ body {
 //   display: flex;
 //   align-items: center;
 }
+@media only screen and (max-width: 650px) {
+  body {
+    height: 300px;
+    width: 100%;
+    -webkit-background-size: none;
+  -moz-background-size: none;
+  -o-background-size: none;
+  background-size: none;
+  }
+  html { height: 1200px; }
+}
 
 .text-box {
   background: rgb(119, 158, 211);
