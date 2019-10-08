@@ -186,10 +186,18 @@ properCompanies = () => {
   }
   console.log("CONSOLED RESULT:", [...new Set(result)])
   // this.setState({returnedCompanies: [...new Set(result)]})
+  result.filter((company) => {
+    if (company.companyName != "Metro Watch"){
+      console.log("mapping", company)
+      return company
+    }
+  })
+  
   return [...new Set(result)]
 }
   render(){
-    let companies = this.properCompanies()
+    let companies = Array.from(this.properCompanies())
+    console.log(companies[0])
     // if (this.state.findButton == false ) {
     //   return (
     //     <>
