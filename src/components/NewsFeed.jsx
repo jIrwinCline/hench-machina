@@ -21,15 +21,12 @@ export default class NewsFeed extends Component {
         return article.title
       })
       let newsCompany = newsArticles.map((article) => {
-        console.log(article.source["name"])
         return article.source["name"]
       })
       let images = newsArticles.map((article) => {
-        console.log(article.source["name"])
         return article.urlToImage
       })
       let links = newsArticles.map((article) => {
-        console.log(article.source["name"])
         return article.url
       })
     const newState = Object.assign({}, this.state, { titles: titles, newsCompany: newsCompany, images: images, links: links})
@@ -38,7 +35,6 @@ export default class NewsFeed extends Component {
   }
   render() {
     let cardReturn = (i) => {
-      console.log("ITERATE ",i)
       return(
         <div className="col-md-4">
             <div className="card news-card-style text-decoration">

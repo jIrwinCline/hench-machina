@@ -122,6 +122,15 @@ handleChange = (event)=> {
     })
   console.log("after handle change", this.state)
 }
+onHandsOnChange = (value) => {
+  const newState = Object.assign({}, this.state, { handsOn: JSON.parse(value) })
+  this.setState(newState)
+  // const newState = Object.assign({}, this.state, { handsOn})
+}
+onPriceChange = (value) => {
+  const newState = Object.assign({}, this.state, { price: value })
+  this.setState(newState)
+}
 
 handleCheckboxChange = (e) => {
     console.log("HandleCheckboxChange", this.state)
@@ -150,13 +159,13 @@ backButtonClick = () => {
 
 handleSubmit = (event) => {
     event.preventDefault()
-    const { checkedItems, handsOn, cost, additionalInfo } = this.state
+    const { checkedItems, handsOn, discreet, cost, additionalInfo } = this.state
     let serviceArr = []
     for (let [k,v] of checkedItems){
         console.log(k)
         serviceArr.push(k)
     }
-
+    console.log("MY STATE",this.state)
     const newState = Object.assign({}, this.state, { submitted: true, page: "submitted-page" })
     this.setState(newState)
 
@@ -188,18 +197,25 @@ properCompanies = () => {
   }
   console.log("CONSOLED RESULT:", [...new Set(result)])
   // this.setState({returnedCompanies: [...new Set(result)]})
-  let newResult = result.filter((company) => {
-    if (company.handsOn != this.state.handsOn){
-      console.log("handson", company.handsOn)
-      console.log("mapping", company)
-      return company
-    } else {
-      console.log("ELSE: ", company)
-    }
-  })
-  console.log("END RESULT",result)
+  if(this.state.handsOn == true){
+    result = result.filter((company) => {
+      if (company.handsOn == true){
+        console.log("handson", company.handsOn)
+        console.log("mapping", company)
+        return company
+      } else {
+        console.log("ELSE: ", company)
+      }
+    })
+  }
+  //ATTEMPTED LOCGIC FOR PRICE CHANGES
+  // result = newResult.filter((company) => {
+  //   if (company.hourlyRange == this.state.cost){
+  //     return company
+  //   }
+  // })
   
-  return [...new Set(newResult)]
+  return [...new Set(result)]
 }
   render(){
     let companies = Array.from(this.properCompanies())
@@ -255,6 +271,8 @@ properCompanies = () => {
           <MasterForm
           handleSubmit={this.handleSubmit}
           handleCheckboxChange={this.handleCheckboxChange}
+          onHandsOnChange={this.onHandsOnChange}
+          onPriceChange={this.onPriceChange}
           handleChange={this.handleChange}
           checkedItems={this.state.checkedItems}
           addInfo={this.state.addInfo}

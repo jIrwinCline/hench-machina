@@ -44,16 +44,16 @@ export default class MasterForm extends Component {
                         <p>we'll further refine the results</p>
                             <div className="form-group">
                                 <label htmlFor="RadioGroup">Do you need a company known for going hands on for arresting?</label>
-                                <RadioGroup horizontal>
-                                    <RadioButton value="yes">
+                                <RadioGroup onChange={this.props.onHandsOnChange} horizontal name="handsOn">
+                                    <RadioButton value="true">
                                         Yes
                                     </RadioButton>
-                                    <RadioButton value="no">
+                                    <RadioButton value="false">
                                         No
                                     </RadioButton>
                                 </RadioGroup>
                                 <label htmlFor="RadioGroup">What price range are you looking to pay for services? (typically, higher prices are associated with better a quality of service)</label>
-                                <RadioGroup horizontal>
+                                <RadioGroup onChange={this.props.onPriceChange} horizontal>
                                     <RadioButton value="low">
                                         Low Cost
                                     </RadioButton>
