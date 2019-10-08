@@ -21,6 +21,8 @@ export default class Body extends Component {
       currentStep: 1,
       checkedItems: new Map(),
       handsOn: false,
+      armed: false,
+      discreet: false,
       cost: "med",
       addInfo: "",
       enterPage: "form-page",
@@ -186,14 +188,18 @@ properCompanies = () => {
   }
   console.log("CONSOLED RESULT:", [...new Set(result)])
   // this.setState({returnedCompanies: [...new Set(result)]})
-  result.filter((company) => {
-    if (company.companyName != "Metro Watch"){
+  let newResult = result.filter((company) => {
+    if (company.handsOn != this.state.handsOn){
+      console.log("handson", company.handsOn)
       console.log("mapping", company)
       return company
+    } else {
+      console.log("ELSE: ", company)
     }
   })
+  console.log("END RESULT",result)
   
-  return [...new Set(result)]
+  return [...new Set(newResult)]
 }
   render(){
     let companies = Array.from(this.properCompanies())
