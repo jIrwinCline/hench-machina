@@ -1,4 +1,5 @@
 import React from 'react';
+import MapContainer from "./MapContainer"
 
 
 export default function CompanyView(props) {
@@ -49,6 +50,7 @@ export default function CompanyView(props) {
             <br/>
             <h4>{props.company.contactNumber}</h4><br/>
             <h4>{props.company.address}</h4><br/>
+            <MapContainer />
         </div>
     </>
   )
