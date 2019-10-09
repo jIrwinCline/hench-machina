@@ -40,6 +40,34 @@ div.navigation hr {
 	  // width: 110px
 	  
   }
+  @media only screen and (max-height: 815px) {
+    div.navigation {
+		// top: 100px;
+		// display: none;
+	}
+	div.navigation h2 {
+		font-size: 30px;
+		// display: none;
+	}
+	div.navigation h3 {
+		font-size: 30px;
+		// display: none;
+	}
+	button.find-btn {
+		top: 200px;
+		left: 77px;
+	}
+	div.nav-buttons button.up{
+		position: absolute;
+		bottom: 0px !important;
+		right: 20px;
+	}
+	div.nav-buttons button.down{
+		position: absolute;
+		bottom: 0px !important;
+		right: 160px;
+	}
+}
 @media only screen and (max-width: 650px) {
     div.navigation {
 		top: 100px;
