@@ -210,7 +210,81 @@ const masterCompanyList = [
       url: "https://www.g4s.com/en-us/contact-us/local-offices/portland",
   
     },
-    
+    {
+      companyName: "Portland Patrol",
+      coreServices: [
+        "Patrol",
+        "Surveilance",
+        "Alarm Response",
+      ],
+      specialServices: [
+        
+      ],
+      discreet: false,
+      armedServices: true,
+      handsOn: true,
+      hourlyRange: "med",
+      contactNumber: "(503)-224-7383",
+      address: "208 NW First Ave Portland, OR 97209",
+      url: "https://portlandpatrol.com/",
+  
+    },
+    {
+      companyName: "Advanced Security",
+      coreServices: [
+        "Patrol",
+        "Entry Access",
+        "Surveilance",
+        "Event Security",
+        "Executive/Personnel Protection",
+        "Estate and Residential Protection",
+        "Alarm Response",
+      ],
+      specialServices: [
+        "Executive Protection",
+        "Workplace Violence Details",
+        
+      ],
+      discreet: false,
+      armedServices: true,
+      handsOn: true,
+      hourlyRange: "med",
+      contactNumber: "503-222-5381",
+      address: "716 SE 11th Avenue Suite A Portland, OR 97214",
+      url: "https://www.advancedsecurityinc.com/",
+  
+    },
+    {
+      companyName: "Eclipse Security",
+      coreServices: [
+        "Patrol",
+        "Loss Prevention",
+        "Entry Access",
+        "Surveilance",
+        "Event Security",
+        "Executive/Personnel Protection",
+        "Estate and Residential Protection",
+        "Security Consulting",
+        "Alarm Response",
+      ],
+      specialServices: [
+        "Transient Disbursement Services",
+        "Executive Protection",
+        "Workplace Violence Details",
+        "Security Training",
+        "Private Investigation",
+        
+        "Crowd Control",
+      ],
+      discreet: true,
+      armedServices: true,
+      handsOn: true,
+      hourlyRange: "med",
+      contactNumber: "503-454-0997",
+      address: "11118 NE Halsey St Portland, OR 97220",
+      url: "http://www.eclipse-security-service.com/",
+  
+    },
   ]
 
   export default masterCompanyList
