@@ -15,14 +15,13 @@ export class MapContainer extends Component {
       }
     }
   
-    displayMarkers = () => {
-      return this.state.stores.map((store, index) => {
-        return <Marker key={index} id={index} position={{
-         lat: store.latitude,
-         lng: store.longitude
-       }}
-       onClick={() => console.log("You clicked me!")} />
-      })
+    displayMarker = () => {
+        if (this.props.coordinates){
+            return <Marker position={{
+                lat: this.props.coordinates[0],
+                lng: this.props.coordinates[1]
+            }} />
+        }
     }
   
     render() {
@@ -35,9 +34,9 @@ export class MapContainer extends Component {
             google={this.props.google}
             zoom={8}
             style={mapStyles}
-            initialCenter={{ lat: 47.444, lng: -122.176}}
+            initialCenter={{ lat: 45.5051, lng: -122.6750}}
           >
-            {this.displayMarkers()}
+            {this.displayMarker()}
           </Map>
       );
     }
@@ -47,4 +46,4 @@ export class MapContainer extends Component {
     apiKey: 'AIzaSyCFOvumc3rdzwFmAvBhmJtsbwCDCeMmVMo'
   })(MapContainer);
 
-  //lat: 45.5051, lng: -122.6750
+  

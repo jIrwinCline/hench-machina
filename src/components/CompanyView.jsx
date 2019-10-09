@@ -51,7 +51,7 @@ export default function CompanyView(props) {
             <h4>{props.company.contactNumber}</h4><br/>
             <h4>{props.company.address}</h4><br/>
             <div className="map-container-style">
-                <MapContainer />
+                <MapContainer coordinates={props.company.coordinates}/>
             </div>
         </div>
     </>
