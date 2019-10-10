@@ -78,7 +78,7 @@ const masterCompanyList = [
       hourlyRange: "low",
       contactNumber: "503.243.1620",
       address: "129 SW 4th Ave, Portland, OR 97204",
-      coordinates: [45.31191,-122.40296]
+      coordinates: [45.31191,-122.40296],
       url: "https://www.securitasinc.com/Contact-Us/Oregon/Portland/"
   
     },
