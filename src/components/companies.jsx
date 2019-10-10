@@ -53,8 +53,8 @@ const masterCompanyList = [
       handsOn: true,
       hourlyRange: "med",
       contactNumber: "503-893-8858",
-      address: "21328 Highway 99E Aurora, OR 97002",
-      coordinates: null,
+      address: "17116 NE Sandy Blvd, Portland, OR 97230",
+      coordinates: [45.32505,-122.29130],
       url: "http://nwenforcement.com/",
   
     },
@@ -77,8 +77,8 @@ const masterCompanyList = [
       handsOn: false,
       hourlyRange: "low",
       contactNumber: "503.243.1620",
-      address: "129 SW 4th Avenue Portland, OR 97204",
-      coordinates: null,
+      address: "129 SW 4th Ave, Portland, OR 97204",
+      coordinates: [45.31191,-122.40296]
       url: "https://www.securitasinc.com/Contact-Us/Oregon/Portland/"
   
     },
@@ -96,7 +96,7 @@ const masterCompanyList = [
       hourlyRange: "high",
       contactNumber: "(503)-575-8537",
       address: "9880 SW Beaverton Hillsdale HWY, STE 103 Beaverton, OR 97005",
-      coordinates: null,
+      coordinates: [45.29105,-122.46419],
       url: "http://www.sharpepdx.com",
   
     },
@@ -137,8 +137,8 @@ const masterCompanyList = [
       handsOn: true,
       hourlyRange: "med",
       contactNumber: "503-454-0511",
-      address: "Address N/A",
-      coordinates: null,
+      address: "11507 SW Shilo Ln C, Portland, OR 97225",
+      coordinates: [45.30553,-122.47772],
       url: "https://www.pacificarmored.com/atm-servicing/",
     },
     {
@@ -167,8 +167,8 @@ const masterCompanyList = [
       handsOn: true,
       hourlyRange: "high",
       contactNumber: "(503) 320-9421",
-      address: "Address N/A",
-      coordinates: null,
+      address: "7609 SE Overland St, Portland, OR 97222",
+      coordinates: [45.27164,-122.35065],
       url: "https://www.beararmssecurity.com/",
   
     },
@@ -189,7 +189,7 @@ const masterCompanyList = [
       hourlyRange: "med",
       contactNumber: "(503) 226-6561",
       address: "4501 NE Minnehaha St Ste 100, Vancouver, WA 98661",
-      coordinates: null,
+      coordinates: [45.40029,-122.37312],
       url: "https://www.metro-watch.com",
   
     },
@@ -215,7 +215,7 @@ const masterCompanyList = [
       hourlyRange: "med",
       contactNumber: "(503)-951-0903",
       address: "5100 SW Macadam Ave South Portland",
-      coordinates: null,
+      coordinates: [45.29095,-122.40308],
       url: "https://www.g4s.com/en-us/contact-us/local-offices/portland",
   
     },
@@ -235,7 +235,7 @@ const masterCompanyList = [
       hourlyRange: "med",
       contactNumber: "(503)-224-7383",
       address: "208 NW First Ave Portland, OR 97209",
-      coordinates: null,
+      coordinates: [45.31298,-122.40151],
       url: "https://portlandpatrol.com/",
   
     },
@@ -261,7 +261,7 @@ const masterCompanyList = [
       hourlyRange: "med",
       contactNumber: "503-222-5381",
       address: "716 SE 11th Avenue Suite A Portland, OR 97214",
-      coordinates: null,
+      coordinates: [45.517573,-122.654422],
       url: "https://www.advancedsecurityinc.com/",
   
     },
@@ -293,7 +293,7 @@ const masterCompanyList = [
       hourlyRange: "med",
       contactNumber: "503-454-0997",
       address: "11118 NE Halsey St Portland, OR 97220",
-      coordinates: null,
+      coordinates: [45.533226, -122.548175],
       url: "http://www.eclipse-security-service.com/",
   
     },
