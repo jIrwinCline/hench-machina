@@ -16,9 +16,7 @@ export default class MasterForm extends Component {
             // console.log(item)
             return(
             <div>
-                <label htmlFor={item.name} key={item.key}>
-                {item.name}
-                </label>
+                
                 <Checkbox name={item.name} checked={this.props.checkedItems.get(item.name)} onChange={this.props.handleCheckboxChange} />
             </div>
             );

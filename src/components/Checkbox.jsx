@@ -10,7 +10,10 @@ console.log(name)
 // );
 
 const Checkbox = (props) => (
-  <input type="checkbox" name={props.name} checked={props.checked} onChange={props.onChange} />
+  <>
+  <label className="label" htmlFor={props.name} key={props.key}>{props.name}</label>
+  <input className="checkbox" type="checkbox" name={props.name} checked={props.checked} onChange={props.onChange} />
+  </>
 );
 
 Checkbox.propTypes = {
