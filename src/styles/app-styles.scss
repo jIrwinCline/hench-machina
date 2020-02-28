@@ -9,13 +9,15 @@
     }
 }
 /*Page styles*/
-html { height: 100%; }
-
+html { 
+  height: 100%; 
+  // background-color: linear-gradient(to-right, red, yellow);
+}
 body {
   height: 100%;
   margin: 0;
   // background: rgb(28,26,35);
-  background: url("https://i0.wp.com/www.ultrahdwalls.com/wp-content/uploads/wallpapers/abstract/abstract1/dark-background-lines-rays-points-gray-backgrounds-hd.jpg?fit=1920%2C1200&ssl=1") no-repeat center center fixed; 
+  background: url("https://www.akamai.com/us/en/multimedia/images/home/2019/homepage-intro-background-mobile.png?imwidth=1366") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
